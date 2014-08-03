@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  ## You need to skip `:registrations` and `:passwords` routes too because you are resetting them as well
+  devise_for :users
+
   root 'static_pages#home'
 
   match '/about',   to: 'static_pages#about',    via: 'get'
