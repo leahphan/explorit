@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
 
 	belongs_to :user
+	belongs_to :category
+
 	default_scope -> { order('created_at DESC') }
   has_attached_file :photo, :styles => { :thumb => "300x300#" }
 

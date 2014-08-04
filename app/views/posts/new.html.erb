@@ -9,7 +9,10 @@
 
   <div><%= f.text_area :description, {class: "form-control", placeholder: "Description ...."} %></div>
 
-  <div><%= f.file_field :photo %>
+  <div><%= f.label(:category_id, "Category") %><%= f.collection_select(:category_id, @categories, :id, :name, :include_blank => "Please select") %>
+  </div>
+
+  <div><%= f.file_field :photo %></div>
 
   <div><%= f.submit "Post", class: "btn btn-large btn-primary btn-block" %></div>
 <% end %>

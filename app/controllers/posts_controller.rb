@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete, :destroy]
+	before_filter :prepare_categories
 
 	def index
 		@posts = Post.all
@@ -12,6 +13,7 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		@categories = Category.all
 	end
 
 	def edit
@@ -48,5 +50,9 @@ class PostsController < ApplicationController
 
 		def post_params
 			params.require(:post).permit(:title, :description, :photo)
+		end
+
+		def prepare_categories
+			@categories = Category.all
 		end
 end
