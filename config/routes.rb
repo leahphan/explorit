@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   ## You need to skip `:registrations` and `:passwords` routes too because you are resetting them as well
   devise_for :users
 
-  root 'static_pages#home'
+  root 'posts#index'
 
   match '/about',   to: 'static_pages#about',    via: 'get'
+  resources :users, only: [:show]
+  resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

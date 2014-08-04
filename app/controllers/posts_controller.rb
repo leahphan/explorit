@@ -1,0 +1,52 @@
+class PostsController < ApplicationController
+
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete, :destroy]
+
+	def index
+		@posts = Post.all
+	end
+
+	def show
+		@post = Post.find(params[:id])
+	end
+
+	def new
+		@post = Post.new
+	end
+
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		if @post.update_attributes(post_params)
+			flash[:success] = "Post edited!"
+			redirect_to post_path
+		else
+			render 'edit'
+		end
+	end
+
+	def create
+		@post = current_user.posts.build(post_params)
+		if @post.save
+			flash[:success] = "Post created!"
+			redirect_to root_url
+		else
+			render 'new'
+		end
+	end
+
+	def destroy
+		post = Post.find(params[:id]).destroy
+		flash[:notice] = "Post deleted"
+		redirect_to user_path
+	end
+
+	private
+
+		def post_params
+			params.require(:post).permit(:title, :description, :photo)
+		end
+end

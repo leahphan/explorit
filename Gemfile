@@ -8,6 +8,7 @@ gem 'bootstrap-sass', '~> 3.2.0.1'
 gem 'autoprefixer-rails'
 gem 'sprockets', '2.11.0'
 gem 'devise', '~> 3.2.4'
+gem 'paperclip', '~> 4.2.0'
 
 group :development do
 	gem 'sqlite3'

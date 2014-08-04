@@ -1,0 +1,15 @@
+<% @page_title = "Post" %>
+
+<%= link_to("<< Back to All", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="row">
+	<%= image_tag @post.photo.url %>
+		<div class="caption">
+			<h3><%= @post.title %></h3>
+				<p><%= @post.description %></p>
+				  <span class="timestamp">
+				   Posted <%= time_ago_in_words(@post.created_at) %> ago.
+				   </span>
+			</div>
+</div>
+

@@ -1,0 +1,18 @@
+<title>Post</title>
+
+<div class="row">
+  <div class="span6 offset3">
+<%= form_for(@post, html: { class: "form-signin", role: "form", :multipart => true }) do |f| %>
+<h2 class="form-signin-heading">Share Something Awesome</h2>
+
+  <div><%= f.text_field :title, {autofocus: true, class: "form-control", placeholder: "Title"} %></div>
+
+  <div><%= f.text_area :description, {class: "form-control", placeholder: "Description ...."} %></div>
+
+  <div><%= f.file_field :photo %>
+
+  <div><%= f.submit "Post", class: "btn btn-large btn-primary btn-block" %></div>
+<% end %>
+
+  </div>
+</div>
