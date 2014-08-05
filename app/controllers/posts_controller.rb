@@ -4,7 +4,11 @@ class PostsController < ApplicationController
 	before_filter :prepare_categories
 
 	def index
-		@posts = Post.all
+		if params[:search]
+			@posts = Post.search(params[:search])
+		else
+			@posts = Post.all
+		end
 	end
 
 	def show
