@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 	private
 
 		def post_params
-			params.require(:post).permit(:title, :description, :photo)
+			params.require(:post).permit(:title, :description, :photo, :category_id)
 		end
 
 		def prepare_categories

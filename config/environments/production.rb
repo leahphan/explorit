@@ -82,7 +82,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'mighty-ridge-7771.herokuapp.com' }
 
-  config.paperclip_defaults = {
+  PAPERCLIP_STORAGE_OPTIONS = {
     :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['S3_BUCKET_NAME'],
