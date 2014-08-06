@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   match '/about',   to: 'static_pages#about',    via: 'get'
   resources :users, only: [:show]
-  resources :posts
+  resources :posts 
+  resources :categories do 
+    resources :posts
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,6 +6,8 @@ class PostsController < ApplicationController
 	def index
 		if params[:search]
 			@posts = Post.search(params[:search])
+		elsif params[:category_id]
+			@posts = Post.where(:category_id => params[:category_id])
 		else
 			@posts = Post.all
 		end
