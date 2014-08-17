@@ -9,13 +9,16 @@
 
   <div><%= f.text_area :description, {class: "form-control", placeholder: "Description ...."} %></div>
 
-  <div><%= f.label(:category_id, "Category") %><%= f.collection_select(:category_id, @categories, :id, :name, :include_blank => "Please select") %>
+  <div class="form-group"><%= f.label(:category_id, "Category") %><br>
+  	<%= f.collection_select(:category_id, @categories, :id, :name, {prompt: "Select a category"}, {class: "form-control"})  %>
+  	or create one:
+  	<%= f.text_field :new_category %>
   </div>
 
-  <div><%= f.file_field :photo %></div>
+  <div class="form-group"><%= f.label(:photo) %><%= f.file_field :photo %></div>
 
   <div><%= f.submit "Post", class: "btn btn-large btn-primary btn-block" %></div>
-<% end %>
 
+  <% end %>
   </div>
 </div>
