@@ -10,6 +10,15 @@
               Posted <%= time_ago_in_words(post.created_at) %> ago.
             </span>
         </div>
+        <div class="caption">
+            <% post.comments.each do |comment| %>
+              <div>
+                <strong><%= comment.user.email %></strong>
+                <p><%= comment.content %></p>
+                <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              </div>
+            <% end %>
+        </div>
       </div>
     </div>
 
@@ -29,6 +38,11 @@
         <span class="timestamp">
           Posted <%= time_ago_in_words(post.created_at) %> ago.
         </span>
+      <%= form_for @comment do |comment| %>
+        <%= comment.text_field :content, :placeholder => "Add a comment", :class => "form-control" %>
+        <%= comment.hidden_field :post_id, :value => post.id %>
+        <%= comment.submit "Comment", :class => "btn btn-primary btn-xs"%>
+      <% end %>
       </div>
     </div>
   </div>

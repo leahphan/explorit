@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :comments
+
   ## You need to skip `:registrations` and `:passwords` routes too because you are resetting them as well
   devise_for :users
 

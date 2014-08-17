@@ -6,10 +6,16 @@ class PostsController < ApplicationController
 	def index
 		if params[:search]
 			@posts = Post.search(params[:search])
+			@comments = @post.comments.all
+			@comment = @post.comments.build
 		elsif params[:category_id]
 			@posts = Post.where(:category_id => params[:category_id])
+			@comments = @posts.comments.all
+			@comment = @posts.comments.build
 		else
 			@posts = Post.all
+			@comments = Comment.all
+			@comment = Comment.new
 		end
 	end
 
