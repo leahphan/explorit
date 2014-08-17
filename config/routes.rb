@@ -3,9 +3,18 @@ Rails.application.routes.draw do
   resources :comments
 
   ## You need to skip `:registrations` and `:passwords` routes too because you are resetting them as well
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  root 'posts#index'
+  devise_scope :user do
+    authenticated :user do
+      root 'posts#index', as: :authenticated_root
+  end
+
+    unauthenticated do
+      root 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
+
 
   match '/about',   to: 'static_pages#about',    via: 'get'
   resources :users, only: [:show]

@@ -6,4 +6,5 @@ class UsersController < ApplicationController
 		@posts = @user.posts.all
 	end
 
+
 end

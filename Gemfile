@@ -10,6 +10,8 @@ gem 'sprockets', '2.11.0'
 gem 'devise', '~> 3.2.4'
 gem 'paperclip', '~> 4.2.0'
 gem 'aws-sdk', '~> 1.50.0'
+gem 'omniauth-facebook', '2.0.0'
+gem 'figaro', '0.7.0'
 
 group :development do
 	gem 'sqlite3'

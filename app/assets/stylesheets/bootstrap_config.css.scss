@@ -1,2 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body { 
+	padding-top: 70px; 
+	background-color: transparent;
+	}
+
+.full {
+background: url("background.jpg") no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.jumbotron {
+	color: white;
+	text-align: center;
+	background-color: rgba(33,33,33,0.7)
+}

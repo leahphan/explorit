@@ -43,3 +43,5 @@ pickle-email-*.html
 .rvmrc
 
 config/s3_credentials.yml
+# Ignore application configuration
+/config/application.yml
