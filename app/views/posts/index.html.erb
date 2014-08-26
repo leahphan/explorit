@@ -1,6 +1,6 @@
 <ul class="posts">
   <% @posts.each do |post| %>
-    <div class="col-sm-6 col-md-3">
+    <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <%= link_to image_tag(post.photo.url(:thumb)), "#", "data-toggle" => "modal", "data-target" => "#post_#{post.id}" %>
         <div class="caption">
@@ -31,7 +31,7 @@
         <h4 class="modal-title" id="myModalLabel"><%= post.title %></h4>
       </div>
       <div class="modal-body">
-        <%= image_tag post.photo.url, size: "550x550" %>
+        <%= image_tag post.photo.url(:medium), size: "570" %>
       </div>
       <div class="modal-footer">
         <p><%= post.description %></p>

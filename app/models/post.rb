@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
 
 	default_scope -> { order('created_at DESC') }
   has_attached_file :photo, 
-		{:styles => {:thumb => "300x300#"},
+		{:styles => {:thumb => "350x350#", :medium => "570x570#"},
   	:path => "assets/:id/:basename.:extension"}.merge(PAPERCLIP_STORAGE_OPTIONS)
 
   validates :user_id, presence: true
